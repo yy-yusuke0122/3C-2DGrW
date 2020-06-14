@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 652453830}
   - component: {fileID: 652453829}
   - component: {fileID: 652453828}
+  - component: {fileID: 652453831}
   m_Layer: 0
   m_Name: Nest_Tile
   m_TagString: Untagged
@@ -641,6 +642,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &652453831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652453826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f3e9c4bc3b32544a3717b30400d412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 2663732849382092504, guid: 235dac74c9251504eb5a2fb4cd245775, type: 3}
+  Interval: 1
 --- !u!1 &936220148
 GameObject:
   m_ObjectHideFlags: 0
