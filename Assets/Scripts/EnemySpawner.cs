@@ -6,11 +6,11 @@ public class EnemySpawner : MonoBehaviour
 {
     // 敵のオブジェクト
     [SerializeField]
-    GameObject enemy;
+    GameObject enemy = null;
 
     // スポーン間隔
     [SerializeField]
-    float Interval;
+    float Interval = 0f;
 
     // 経過時間
     float time;
@@ -37,8 +37,9 @@ public class EnemySpawner : MonoBehaviour
     {
         if (time > Interval)
         {
-            Instantiate(enemy, this.transform);
-            
+            Transform tr = this.transform;
+            GameObject obj = Instantiate(enemy, tr);
+            obj.transform.Translate(new Vector3(0f, -0.5f, 0f));
             time = 0.0f;
         }
     }
