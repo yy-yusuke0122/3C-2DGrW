@@ -38,6 +38,7 @@ public class EnemySpawner : MonoBehaviour
         if (time > Interval)
         {
             Instantiate(enemy, this.transform);
+            
             time = 0.0f;
         }
     }
