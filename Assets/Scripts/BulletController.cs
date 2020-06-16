@@ -22,7 +22,14 @@ public class BulletController : MonoBehaviour
             targetObject.transform.position.x - transform.position.x);
         }
         else rad = 0f;
-
+       /* GameObject NestObject = GetNearObject(this.gameObject, "Nest");
+        if (NestObject != null)
+        {
+            rad = Mathf.Atan2(
+                NestObject.transform.position.y - transform.position.y,
+                NestObject.transform.position.x - transform.position.x);
+        }
+        else rad = 0f;*/
         // 一定時間後、自機を破壊
         Destroy(this.gameObject, DestroyTime);
     }
