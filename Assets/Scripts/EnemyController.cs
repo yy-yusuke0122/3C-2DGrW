@@ -10,6 +10,12 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //進方向をここに書く
         GameObject baseObject = GetNearObject(this.gameObject, "Base");
         if (baseObject != null)
@@ -19,11 +25,6 @@ public class EnemyController : MonoBehaviour
                 baseObject.transform.position.x - transform.position.x);
         }
         else Rad = 0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         Vector3 Position = transform.position;
         Position.x += MoveSpeed * Mathf.Cos(Rad) * Time.deltaTime;
         Position.y += MoveSpeed * Mathf.Sin(Rad) * Time.deltaTime;
