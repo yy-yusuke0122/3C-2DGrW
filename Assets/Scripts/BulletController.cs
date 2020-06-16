@@ -15,9 +15,13 @@ public class BulletController : MonoBehaviour
     {
         // 飛ぶ方向をセット
         GameObject targetObject = GetNearObject(this.gameObject, "Enemy");
-        rad = Mathf.Atan2(
+        if (targetObject != null)
+        {
+            rad = Mathf.Atan2(
             targetObject.transform.position.y - transform.position.y,
             targetObject.transform.position.x - transform.position.x);
+        }
+        else rad = 0f;
 
         // 一定時間後、自機を破壊
         Destroy(this.gameObject, DestroyTime);

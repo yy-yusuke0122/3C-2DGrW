@@ -19,7 +19,7 @@ public class PlayerAttackSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ObjectLifeSystem comp = GetComponent<ObjectLifeSystem>();
+        ObjectLifeSystem comp = collision.gameObject.GetComponent<ObjectLifeSystem>();
         comp.Damage(Damage);
     }
 }
