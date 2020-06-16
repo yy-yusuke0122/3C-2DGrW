@@ -15,21 +15,18 @@ public class BulletController : MonoBehaviour
     {
         // 飛ぶ方向をセット
         GameObject targetObject = GetNearObject(this.gameObject, "Enemy");
+        if(targetObject == null)
+        {
+            targetObject = GetNearObject(this.gameObject, "Nest");
+        }
         if (targetObject != null)
         {
             rad = Mathf.Atan2(
             targetObject.transform.position.y - transform.position.y,
             targetObject.transform.position.x - transform.position.x);
         }
-        else rad = 0f;
-        GameObject NestObject = GetNearObject(this.gameObject, "Nest");
-        if (NestObject != null)
-        {
-            rad = Mathf.Atan2(
-                NestObject.transform.position.y - transform.position.y,
-                NestObject.transform.position.x - transform.position.x);
-        }
-        else rad = 0f;
+        else Destroy(this.gameObject);
+
         // 一定時間後、自機を破壊
         Destroy(this.gameObject, DestroyTime);
     }
@@ -39,8 +36,6 @@ public class BulletController : MonoBehaviour
     {
         // 現在位置をPositionに代入
         Vector3 Position = transform.position;
-        // x += SPEED * cos(ラジアン)
-        // y += SPEED * sin(ラジアン)
         // これで特定の方向へ向かって進んでいく。
         Position.x += MoveSpeed * Mathf.Cos(rad) * Time.deltaTime;
         Position.y += MoveSpeed * Mathf.Sin(rad) * Time.deltaTime;
@@ -48,6 +43,8 @@ public class BulletController : MonoBehaviour
         transform.position = Position;
     }
 
+    [SerializeField]
+    float MaxSearchDistance = 10f;
     //指定されたタグの中で最も近いものを取得
     GameObject GetNearObject(GameObject nowObj, string tagName)
     {
@@ -61,6 +58,10 @@ public class BulletController : MonoBehaviour
         {
             //自身と取得したオブジェクトの距離を取得
             tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
+
+            // 最大探索距離を超えたら終了
+            if (tmpDis > MaxSearchDistance)
+                return targetObj;
 
             //オブジェクトの距離が近いか、距離0であればオブジェクト名を取得
             //一時変数に距離を格納
