@@ -18,13 +18,13 @@ public class EnemyAttackSystem : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         bool isEnemy = collision.gameObject.tag == "Enemy";
         bool isNest = collision.gameObject.tag == "Nest";
         if (!isEnemy && !isNest)
         {
-            ObjectLifeSystem comp = GetComponent<ObjectLifeSystem>();
+            ObjectLifeSystem comp = collision.gameObject.GetComponent<ObjectLifeSystem>();
             comp.Damage(Damage);
         }
     }

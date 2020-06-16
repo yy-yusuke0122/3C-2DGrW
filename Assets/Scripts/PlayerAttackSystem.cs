@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackSystem : MonoBehaviour
 {
+    [SerializeField]
     float Damage = 25f;
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,6 @@ public class PlayerAttackSystem : MonoBehaviour
     {
         ObjectLifeSystem comp = collision.gameObject.GetComponent<ObjectLifeSystem>();
         comp.Damage(Damage);
+        Destroy(this.gameObject);
     }
 }
