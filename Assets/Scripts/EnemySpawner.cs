@@ -37,9 +37,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (time > Interval)
         {
-            Transform tr = this.transform;
-            GameObject obj = Instantiate(enemy, tr);
-            obj.transform.Translate(new Vector3(0f, -0.5f, 0f));
+            GameObject obj = Instantiate(enemy, this.transform);
             time = 0.0f;
         }
     }

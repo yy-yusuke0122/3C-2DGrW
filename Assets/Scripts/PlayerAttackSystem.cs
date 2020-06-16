@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-public class Title : MonoBehaviour
+
+public class PlayerAttackSystem : MonoBehaviour
 {
+    float Damage = 25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +14,12 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) {
-            SceneManager.LoadScene("Main");
-        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ObjectLifeSystem comp = GetComponent<ObjectLifeSystem>();
+        comp.Damage(Damage);
     }
 }

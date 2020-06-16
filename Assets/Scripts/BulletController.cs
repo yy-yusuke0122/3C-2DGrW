@@ -7,13 +7,20 @@ public class BulletController : MonoBehaviour
     [SerializeField]
     float MoveSpeed = 5f;
     float rad = 0f;
+
+    [SerializeField]
+    float DestroyTime = 1f;
     // Start is called before the first frame update
     void Start()
     {
+        // 飛ぶ方向をセット
         GameObject targetObject = GetNearObject(this.gameObject, "Enemy");
         rad = Mathf.Atan2(
             targetObject.transform.position.y - transform.position.y,
             targetObject.transform.position.x - transform.position.x);
+
+        // 一定時間後、自機を破壊
+        Destroy(this.gameObject, DestroyTime);
     }
 
     // Update is called once per frame
