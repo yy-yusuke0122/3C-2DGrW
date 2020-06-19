@@ -8,6 +8,8 @@ public class CameraMove : MonoBehaviour
     private Vector3 scrollStartPos = new Vector3(); // スクロールの起点となるタッチポジション
     private static float SCROLL_END_LEFT = -15f; // 左側への移動制限(これ以上左には進まない)
     private static float SCROLL_END_RIGHT = 15f; // 右側への移動制限(これ以上右には進まない)
+    private static float SCROLL_END_UP = 15f;
+    private static float SCROLL_END_DOWN = -15f;
     private static float SCROLL_DISTANCE_CORRECTION = 0.8f; // スクロール距離の調整
 
     private Vector3 touchPosition = new Vector3(); // タッチポジション初期化
@@ -51,11 +53,16 @@ public class CameraMove : MonoBehaviour
                     {
                         // 直前のタッチ位置との差を取得する
                         float diffPos = SCROLL_DISTANCE_CORRECTION * (touchMovePos.x - scrollStartPos.x);
-
+                        float DiffPos = SCROLL_DISTANCE_CORRECTION * (touchMovePos.y - scrollStartPos.y);
                         Vector3 pos = this.transform.position;
                         pos.x -= diffPos;
+                        pos.y -= DiffPos;
                         // スクロールが制限を超過する場合、処理を止める
                         if (pos.x > SCROLL_END_RIGHT || pos.x < SCROLL_END_LEFT)
+                        {
+                            return;
+                        }
+                        if (pos.y > SCROLL_END_UP || pos.y < SCROLL_END_DOWN)
                         {
                             return;
                         }
