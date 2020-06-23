@@ -8,6 +8,7 @@ TagManager:
   - Nest
   - Base
   - PlayerAttack
+  - Tower
   layers:
   - Default
   - TransparentFX
