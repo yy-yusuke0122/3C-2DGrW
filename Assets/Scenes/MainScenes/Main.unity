@@ -325,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj:
   - {fileID: 5478600808785696097, guid: a2ed8a413c4ba3d41922acd9271577bb, type: 3}
-  - {fileID: 1277218851404454089, guid: 17e20bbfe8a99174da717bd64eb2ec4f, type: 3}
+  - {fileID: 5662572274777472280, guid: 17e20bbfe8a99174da717bd64eb2ec4f, type: 3}
   - {fileID: 1070430462238675353, guid: bd74f99747b8ca04b980825a16d218d1, type: 3}
 --- !u!4 &620451173
 Transform:

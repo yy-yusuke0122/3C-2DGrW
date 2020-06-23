@@ -8,6 +8,9 @@ public class Energy : MonoBehaviour
     bool isBase = false;
     bool energy;
 
+    [SerializeField]
+    float needEnergy = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,5 +74,10 @@ public class Energy : MonoBehaviour
         }
 
         return canGetEnergy;
+    }
+
+    public float GetNeedVal()
+    {
+        return needEnergy;
     }
 }
