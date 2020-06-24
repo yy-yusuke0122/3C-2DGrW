@@ -31,7 +31,8 @@ public class BulletShoot : MonoBehaviour
             if (time > Interval)
             {
                 time = 0f;
-                GameObject newBullet = Instantiate(bullet, this.transform);
+                GameObject newBullet = Instantiate(bullet);
+                newBullet.transform.position = this.transform.position;
             }
         }
     }
