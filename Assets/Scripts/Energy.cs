@@ -20,7 +20,13 @@ public class Energy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isBase)
+        if (isBase)
+        {
+            BaseEnergy comp = this.gameObject.GetComponent<BaseEnergy>();
+            if (comp.CanGiveEnergy()) energy = true;
+            else energy = false;
+        }
+        else
         {
             energy = CanGetEnergy();
         }
@@ -52,7 +58,8 @@ public class Energy : MonoBehaviour
             // 最大探索距離以内ならエネルギー取得
             if (dis < MaxSearchDistance)
             {
-                canGetEnergy = true;
+                BaseEnergy comp = obs.GetComponent<BaseEnergy>();
+                canGetEnergy = comp.CanGiveEnergy();
                 return canGetEnergy;
             }
         }

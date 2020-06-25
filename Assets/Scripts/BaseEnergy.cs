@@ -7,26 +7,72 @@ public class BaseEnergy : MonoBehaviour
     [SerializeField]
     float energy = 1000f;
     [SerializeField]
-    float Charg = 0.1f;
-    float cut = 0f;
+    float Charg = 20f;
+    float useEneVal = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        Energy comp = GetComponent<Energy>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (energy < 1000)
+        // 回復
+        if (energy > 1000f)
         {
-            energy += Charg;
-            //Debug.Log("回復中です");
+            energy = 1000f;
         }
-        if (energy > 1000)
+        else if (energy < 0f)
         {
-            energy = 1000;
-            Debug.Log("満タンだよ");
+            energy = 0f;
         }
+        else
+        {
+            energy += Charg * Time.deltaTime;
+        }
+
+
+        // 必要使用電気量を更新
+        UpdateUseEneVal();
+
+        // 使用
+        energy -= useEneVal * Time.deltaTime;
+        Debug.Log(energy);
+    }
+
+    void UpdateUseEneVal()
+    {
+        // 必要使用電気量を初期化
+        useEneVal = 0f;
+
+        // 必要使用電気量を加算
+        useEneVal += GetNeedEneVal("Tower");
+        useEneVal += GetNeedEneVal("Turret");
+        Debug.Log(useEneVal);
+    }
+
+    float GetNeedEneVal(string str)
+    {
+        float val = 0.0f;
+
+        foreach (GameObject obs in GameObject.FindGameObjectsWithTag(str))
+        {
+            Energy comp = obs.GetComponent<Energy>();
+
+            // 通電していないなら次へ
+            if (!comp.HaveEnergy()) continue;
+
+            // 必要使用電気量を加算
+            Debug.Log("加算！");
+            val += comp.GetNeedVal();
+        }
+
+        return val;
+    }
+
+    public bool CanGiveEnergy()
+    {
+        return energy > 0.0f;
     }
 }
