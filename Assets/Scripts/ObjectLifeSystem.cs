@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ObjectLifeSystem : MonoBehaviour
 {
     [SerializeField]
-    float HP = 100f;
-   
+    public float HP = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
