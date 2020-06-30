@@ -16,7 +16,7 @@ public class Title : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("TestMain");
         }
     }
 }

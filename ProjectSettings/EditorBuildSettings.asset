@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScenes/Result.unity
     guid: cf66ee08525a7ec428874012bdf156bb
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/Takaya/TestMain.unity
+    guid: c9e4ca4d1fd680a42861fda671b051e9
   m_configObjects: {}
