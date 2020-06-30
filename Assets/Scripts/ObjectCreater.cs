@@ -8,12 +8,15 @@ public class ObjectCreater : MonoBehaviour
     GameObject[] obj = null;
     int objNum;
 
+    public bool isCreateMode;
+
     Vector3 mousePos;
 
     // Start is called before the first frame update
     void Start()
     {
         objNum = 0;
+        isCreateMode = true;
     }
 
     // Update is called once per frame
@@ -26,7 +29,7 @@ public class ObjectCreater : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && IsInsideGameArea())
         {
-            GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
+            if (isCreateMode) CreateObject();
         }
     }
 
@@ -35,6 +38,8 @@ public class ObjectCreater : MonoBehaviour
         if (_num >= 0)
         {
             objNum = _num;
+            if (objNum == 3) isCreateMode = false;
+            else isCreateMode = true;
         }
     }
 
@@ -49,5 +54,10 @@ public class ObjectCreater : MonoBehaviour
         {
             return false;
         }
+    }
+
+    void CreateObject()
+    {
+        GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
     }
 }

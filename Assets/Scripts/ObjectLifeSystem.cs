@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class ObjectLifeSystem : MonoBehaviour
 {
     [SerializeField]
     public float HP = 100f;
 
+    GameSystem system;
+
     // Start is called before the first frame update
     void Start()
     {
-      
+        system = Find("GameSystem").GetComponent<GameSystem>();
     }
 
     // Update is called once per frame
@@ -34,4 +37,9 @@ public class ObjectLifeSystem : MonoBehaviour
         }
     }
     
+    void CheckDestroy()
+    {
+        if (!system.isCreateMode && this.gameObject.tag != "Base")
+            Destroy(this.gameObject);
+    }
 }
