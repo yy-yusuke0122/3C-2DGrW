@@ -8,7 +8,7 @@ public class ObjectLifeSystem : MonoBehaviour
     [SerializeField]
     public float HP = 100f;
 
-    GameSystem system;
+    //GameSystem system;
 
     // Start is called before the first frame update
     void Start()

@@ -58,6 +58,6 @@ public class ObjectCreater : MonoBehaviour
 
     void CreateObject()
     {
-        GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
+        //GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
     }
 }
