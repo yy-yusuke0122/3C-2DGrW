@@ -7,6 +7,8 @@ public class Energy : MonoBehaviour
     [SerializeField]
     bool isBase = false;
     bool energy;
+    [SerializeField]
+    float START_GIVE_ENETGY = 100f;
 
     [SerializeField]
     float needEnergy = 5f;
@@ -23,8 +25,8 @@ public class Energy : MonoBehaviour
         if (isBase)
         {
             BaseEnergy comp = this.gameObject.GetComponent<BaseEnergy>();
-            if (comp.CanGiveEnergy()) energy = true;
-            else energy = false;
+            if (comp.GetEnergyVal() < 0f) energy = false;
+            if (comp.GetEnergyVal() > START_GIVE_ENETGY) energy = true;
         }
         else
         {
@@ -52,14 +54,17 @@ public class Energy : MonoBehaviour
         //Baseオブジェクトを取得する
         foreach (GameObject obs in GameObject.FindGameObjectsWithTag("Base"))
         {
+            // Baseのエネルギーが無かったら終了
+            Energy comp = obs.GetComponent<Energy>();
+            if (!comp.HaveEnergy()) return canGetEnergy;
+
             //自身と取得したオブジェクトの距離を取得
             float dis = Vector3.Distance(obs.transform.position, this.transform.position);
 
             // 最大探索距離以内ならエネルギー取得
             if (dis < MaxSearchDistance)
             {
-                BaseEnergy comp = obs.GetComponent<BaseEnergy>();
-                canGetEnergy = comp.CanGiveEnergy();
+                canGetEnergy = comp.HaveEnergy();
                 return canGetEnergy;
             }
         }

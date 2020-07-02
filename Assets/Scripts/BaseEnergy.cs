@@ -71,8 +71,8 @@ public class BaseEnergy : MonoBehaviour
         return val;
     }
 
-    public bool CanGiveEnergy()
+    public float GetEnergyVal()
     {
-        return energy > 0.0f;
+        return energy;
     }
 }

@@ -151,5 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBase: 0
+  START_GIVE_ENETGY: 25
   needEnergy: 5
-  MaxSearchDistance: 3
+  MaxSearchDistance: 5
