@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Title : MonoBehaviour
 {
@@ -16,7 +19,14 @@ public class Title : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene("TestMain");
+            SceneManager.LoadScene("Main");
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
         }
     }
 }
