@@ -8,12 +8,12 @@ public class ObjectLifeSystem : MonoBehaviour
     [SerializeField]
     public float HP = 100f;
 
-    GameSystem system;
+    ObjectCreater system;
 
     // Start is called before the first frame update
     void Start()
     {
-        system = Find("GameSystem").GetComponent<GameSystem>();
+        system = Find("GameSystem").GetComponent<ObjectCreater>();
     }
 
     // Update is called once per frame
