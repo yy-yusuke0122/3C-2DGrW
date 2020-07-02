@@ -29,7 +29,10 @@ public class ObjectCreater : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && IsInsideGameArea())
         {
-            if (isCreateMode) CreateObject();
+            if (isCreateMode)
+            {
+                GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
+            }
         }
     }
 
@@ -54,10 +57,5 @@ public class ObjectCreater : MonoBehaviour
         {
             return false;
         }
-    }
-
-    void CreateObject()
-    {
-        GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
     }
 }

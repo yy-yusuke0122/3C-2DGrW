@@ -13,7 +13,7 @@ public class ObjectLifeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        system = Find("GameSystem").GetComponent<ObjectCreater>();
+        system = GameObject.Find("GameSystem").GetComponent<ObjectCreater>();
     }
 
     // Update is called once per frame
