@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3463366320484868008, guid: 235dac74c9251504eb5a2fb4cd245775, type: 3}
-  Interval: 3
+  Interval: 6
 --- !u!50 &-4410198927544324825
 Rigidbody2D:
   serializedVersion: 4
