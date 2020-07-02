@@ -36,10 +36,4 @@ public class ObjectLifeSystem : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    
-    void CheckDestroy()
-    {
-        if (!system.isCreateMode && this.gameObject.tag != "Base")
-            Destroy(this.gameObject);
-    }
 }

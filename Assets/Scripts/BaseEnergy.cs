@@ -38,7 +38,6 @@ public class BaseEnergy : MonoBehaviour
 
         // 使用
         energy -= useEneVal * Time.deltaTime;
-        Debug.Log(energy);
     }
 
     void UpdateUseEneVal()
@@ -49,7 +48,6 @@ public class BaseEnergy : MonoBehaviour
         // 必要使用電気量を加算
         useEneVal += GetNeedEneVal("Tower");
         useEneVal += GetNeedEneVal("Turret");
-        Debug.Log(useEneVal);
     }
 
     float GetNeedEneVal(string str)
@@ -64,7 +62,6 @@ public class BaseEnergy : MonoBehaviour
             if (!comp.HaveEnergy()) continue;
 
             // 必要使用電気量を加算
-            Debug.Log("加算！");
             val += comp.GetNeedVal();
         }
 

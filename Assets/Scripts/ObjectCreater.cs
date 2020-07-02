@@ -33,6 +33,10 @@ public class ObjectCreater : MonoBehaviour
             {
                 GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
             }
+            else
+            {
+                DestroyObject();
+            }
         }
     }
 
@@ -56,6 +60,21 @@ public class ObjectCreater : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    void DestroyObject()
+    {
+        // 左クリックされた場所のオブジェクトを取得
+        Vector2 tapPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Collider2D collition2d = Physics2D.OverlapPoint(tapPoint);
+        if (collition2d)
+        {
+            GameObject obj = collition2d.transform.gameObject;
+            if (obj.tag != "Base")
+            {
+                Destroy(obj.gameObject);
+            }
         }
     }
 }
