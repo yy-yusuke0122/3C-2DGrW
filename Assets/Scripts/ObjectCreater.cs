@@ -5,6 +5,10 @@ using UnityEngine;
 public class ObjectCreater : MonoBehaviour
 {
     [SerializeField]
+    GameObject areaObj = null;
+    GameObject area = null;
+
+    [SerializeField]
     GameObject[] obj = null;
     int objNum;
 
@@ -17,6 +21,9 @@ public class ObjectCreater : MonoBehaviour
     {
         objNum = 0;
         isCreateMode = true;
+
+        area = Instantiate(areaObj, new Vector3(0,0,0), Quaternion.identity);
+        area.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,11 +34,17 @@ public class ObjectCreater : MonoBehaviour
         Vector3 screenToWorldPointPosition = Camera.main.ScreenToWorldPoint(mousePos);
         screenToWorldPointPosition.z = 0f;
 
+        if (objNum == 1 || objNum == 2)
+        {
+            Debug.Log(area.transform.position);
+            area.transform.position = screenToWorldPointPosition;
+        }
+
         if (Input.GetMouseButtonDown(0) && IsInsideGameArea())
         {
             if (isCreateMode)
             {
-                GameObject newObj = Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
+                Instantiate(obj[objNum], screenToWorldPointPosition, Quaternion.identity);
             }
             else
             {
@@ -47,6 +60,15 @@ public class ObjectCreater : MonoBehaviour
             objNum = _num;
             if (objNum == 3) isCreateMode = false;
             else isCreateMode = true;
+
+            if (objNum == 1 || objNum == 2)
+            {
+                area.SetActive(true);
+            }
+            else
+            {
+                area.SetActive(false);
+            }
         }
     }
 
@@ -70,10 +92,10 @@ public class ObjectCreater : MonoBehaviour
         Collider2D collition2d = Physics2D.OverlapPoint(tapPoint);
         if (collition2d)
         {
-            GameObject obj = collition2d.transform.gameObject;
-            if (obj.tag != "Base")
+            GameObject selectObj = collition2d.transform.gameObject;
+            if (selectObj.tag != "Base")
             {
-                Destroy(obj.gameObject);
+                Destroy(selectObj.gameObject);
             }
         }
     }
