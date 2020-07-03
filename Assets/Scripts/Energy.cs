@@ -13,15 +13,20 @@ public class Energy : MonoBehaviour
     [SerializeField]
     float needEnergy = 5f;
 
+    ObjectLifeSystem lifeSystem;
+
     // Start is called before the first frame update
     void Start()
     {
         energy = isBase;
+        lifeSystem = this.GetComponent<ObjectLifeSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!lifeSystem.isStart) return;
+
         if (isBase)
         {
             BaseEnergy comp = this.gameObject.GetComponent<BaseEnergy>();

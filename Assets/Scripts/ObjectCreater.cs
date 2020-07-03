@@ -95,6 +95,8 @@ public class ObjectCreater : MonoBehaviour
             GameObject selectObj = collition2d.transform.gameObject;
             if (selectObj.tag != "Base")
             {
+                ObjectLifeSystem comp = selectObj.gameObject.GetComponent<ObjectLifeSystem>();
+                Destroy(comp.HP_Bar);
                 Destroy(selectObj.gameObject);
             }
         }

@@ -112,7 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693cc76954b18e348b54d4ff1bce2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP_Bar: {fileID: 1936105980740226252, guid: 587389a38863b9643a55304a62a47d14, type: 3}
+  MaxHP: 100
+  currentHP: 1
+  isStart: 0
+  healVal: 0.25
 --- !u!58 &1070430462238675350
 CircleCollider2D:
   m_ObjectHideFlags: 0

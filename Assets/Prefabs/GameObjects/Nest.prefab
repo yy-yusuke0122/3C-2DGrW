@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3463366320484868008, guid: 235dac74c9251504eb5a2fb4cd245775, type: 3}
-  Interval: 6.5
+  Interval: 6
 --- !u!50 &-4410198927544324825
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693cc76954b18e348b54d4ff1bce2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 500
+  HP_Bar: {fileID: 7204828849519422315, guid: 30a101b2ce105454abe809303f631779, type: 3}
+  MaxHP: 100
+  currentHP: 1
+  isStart: 0
+  healVal: 0.25
 --- !u!58 &5210912284654832113
 CircleCollider2D:
   m_ObjectHideFlags: 0

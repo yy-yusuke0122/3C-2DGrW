@@ -18,7 +18,8 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float BaseHP = Script.HP;
+        float BaseHP = Script.currentHP;
+
         if (BaseHP <= 0f)
         {
             resultTime--;

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4072664838516730181, guid: 30b3db3cf8b780648ade0628adb34328, type: 3}
-  Interval: 0.5
+  Interval: 0.4
 --- !u!61 &9138127462128672757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693cc76954b18e348b54d4ff1bce2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
+  HP_Bar: {fileID: 1936105980740226252, guid: 587389a38863b9643a55304a62a47d14, type: 3}
+  MaxHP: 100
+  currentHP: 1
+  isStart: 0
+  healVal: 0.25
 --- !u!114 &5292645632974371717
 MonoBehaviour:
   m_ObjectHideFlags: 0
