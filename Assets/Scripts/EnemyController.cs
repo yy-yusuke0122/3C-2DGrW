@@ -29,7 +29,9 @@ public class EnemyController : MonoBehaviour
         Position.x += MoveSpeed * Mathf.Cos(Rad) * Time.deltaTime;
         Position.y += MoveSpeed * Mathf.Sin(Rad) * Time.deltaTime;
         transform.position = Position;
-        //transform.Translate(new Vector3(-MoveSpeed * Time.deltaTime, 0.0f, 0.0f));
+
+        var vec = (baseObject.transform.position - transform.position).normalized;
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, vec);
     }
     GameObject GetNearObject(GameObject nowObj, string tagName) {
         float tmpDis = 0;
