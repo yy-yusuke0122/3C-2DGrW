@@ -25,7 +25,7 @@ public class Main : MonoBehaviour
         }
         if (resultTime <= 0)
         {
-            SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("Over");
         }
 
     }

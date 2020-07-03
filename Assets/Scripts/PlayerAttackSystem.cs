@@ -9,13 +9,13 @@ public class PlayerAttackSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject nest = GameObject.FindGameObjectWithTag("Nest");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject EnemyNest = GameObject.Find("Nest");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
